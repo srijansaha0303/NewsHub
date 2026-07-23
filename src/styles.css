@@ -1,0 +1,127 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-serif: "Libre Baskerville", ui-serif, Georgia, serif;
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* NewsHub palette (Navy Trust) */
+  --color-navy-dark: var(--navy-dark);
+  --color-navy-muted: var(--navy-muted);
+  --color-navy-accent: var(--navy-accent);
+  --color-navy-wash: var(--navy-wash);
+  --color-breaking: var(--breaking);
+}
+
+:root {
+  --radius: 0.5rem;
+
+  --navy-dark: #0f1b3d;
+  --navy-muted: #1e3a5f;
+  --navy-accent: #3b6fa0;
+  --navy-wash: #e8edf3;
+  --breaking: #c2410c;
+
+  --background: #fafafa;
+  --foreground: #0f1b3d;
+  --card: #ffffff;
+  --card-foreground: #0f1b3d;
+  --popover: #ffffff;
+  --popover-foreground: #0f1b3d;
+  --primary: #0f1b3d;
+  --primary-foreground: #fafafa;
+  --secondary: #e8edf3;
+  --secondary-foreground: #0f1b3d;
+  --muted: #f4f4f5;
+  --muted-foreground: #52525b;
+  --accent: #e8edf3;
+  --accent-foreground: #0f1b3d;
+  --destructive: #c2410c;
+  --destructive-foreground: #fafafa;
+  --border: #e4e4e7;
+  --input: #e4e4e7;
+  --ring: #3b6fa0;
+}
+
+.dark {
+  --navy-dark: #e8edf3;
+  --navy-muted: #a3b1c6;
+  --navy-accent: #5b8ec2;
+  --navy-wash: #1e2a44;
+  --breaking: #f97316;
+
+  --background: #0a1128;
+  --foreground: #e8edf3;
+  --card: #0f1b3d;
+  --card-foreground: #e8edf3;
+  --popover: #0f1b3d;
+  --popover-foreground: #e8edf3;
+  --primary: #e8edf3;
+  --primary-foreground: #0f1b3d;
+  --secondary: #1e3a5f;
+  --secondary-foreground: #e8edf3;
+  --muted: #1e2a44;
+  --muted-foreground: #a3b1c6;
+  --accent: #1e3a5f;
+  --accent-foreground: #e8edf3;
+  --destructive: #f97316;
+  --destructive-foreground: #fafafa;
+  --border: rgba(255, 255, 255, 0.1);
+  --input: rgba(255, 255, 255, 0.15);
+  --ring: #5b8ec2;
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv11";
+  }
+  h1, h2, h3, h4 { font-family: var(--font-serif); }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@utility marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 40s linear infinite;
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar { display: none; }
+}
